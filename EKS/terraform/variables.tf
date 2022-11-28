@@ -15,3 +15,8 @@ variable "default_tags" {
   }
   type = map(string)
 }
+
+variable "eks_cluster" {
+  type    = string
+  default = "eks-test-cluster"
+}

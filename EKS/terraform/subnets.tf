@@ -7,9 +7,9 @@ resource "aws_subnet" "eks_public_1" {
   tags = merge(
     var.default_tags,
     {
-      Name                        = "eks-public-ap-southeast-1a"
-      "kubernetes.io/cluster/eks" = "shared"
-      "kubernetes.io/role/elb"    = 1
+      Name                                       = "eks-public-ap-southeast-1a"
+      "kubernetes.io/cluster/${var.eks_cluster}" = "shared"
+      "kubernetes.io/role/elb"                   = 1
     }
   )
 }
@@ -23,9 +23,9 @@ resource "aws_subnet" "eks_public_2" {
   tags = merge(
     var.default_tags,
     {
-      Name                        = "eks-public-ap-southeast-1b"
-      "kubernetes.io/cluster/eks" = "shared"
-      "kubernetes.io/role/elb"    = 1
+      Name                                       = "eks-public-ap-southeast-1b"
+      "kubernetes.io/cluster/${var.eks_cluster}" = "shared"
+      "kubernetes.io/role/elb"                   = 1
     }
   )
 }
@@ -38,9 +38,9 @@ resource "aws_subnet" "eks_private_1" {
   tags = merge(
     var.default_tags,
     {
-      Name                              = "eks-private-ap-southeast-1a"
-      "kubernetes.io/cluster/eks"       = "shared"
-      "kubernetes.io/role/internal-elb" = 1
+      Name                                       = "eks-private-ap-southeast-1a"
+      "kubernetes.io/cluster/${var.eks_cluster}" = "shared"
+      "kubernetes.io/role/internal-elb"          = 1
     }
   )
 }
@@ -53,9 +53,9 @@ resource "aws_subnet" "eks_private_2" {
   tags = merge(
     var.default_tags,
     {
-      Name                              = "eks-private-ap-southeast-1b"
-      "kubernetes.io/cluster/eks"       = "shared"
-      "kubernetes.io/role/internal-elb" = 1
+      Name                                       = "eks-private-ap-southeast-1b"
+      "kubernetes.io/cluster/${var.eks_cluster}" = "shared"
+      "kubernetes.io/role/internal-elb"          = 1
     }
   )
 }
