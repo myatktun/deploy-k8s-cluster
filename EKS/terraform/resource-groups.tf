@@ -9,7 +9,9 @@ resource "aws_resourcegroups_group" "eks_resourcegp" {
             "AWS::EKS::Cluster",
             "AWS::EC2::VPC",
             "AWS::EC2::Subnet",
-            "AWS::EC2::InternetGateway"
+            "AWS::EC2::InternetGateway",
+            "AWS::EC2::EIP",
+            "AWS::EC2::NatGateway"
         ],
         "TagFilters": [
             {
