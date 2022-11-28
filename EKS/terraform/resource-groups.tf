@@ -1,6 +1,6 @@
 resource "aws_resourcegroups_group" "eks_resourcegp" {
   name        = var.project_name
-  description = "Resources for streamit dev environment"
+  description = "Resources for eks test environment"
   resource_query {
     query = <<JSON
     {
@@ -8,7 +8,8 @@ resource "aws_resourcegroups_group" "eks_resourcegp" {
             "AWS::EC2::Instance",
             "AWS::EKS::Cluster",
             "AWS::EC2::VPC",
-            "AWS::EC2::Subnet"
+            "AWS::EC2::Subnet",
+            "AWS::EC2::InternetGateway"
         ],
         "TagFilters": [
             {
@@ -24,5 +25,10 @@ resource "aws_resourcegroups_group" "eks_resourcegp" {
     JSON
   }
 
-  tags = var.default_tags
+  tags = merge(
+    var.default_tags,
+    {
+      Name = "eks-resourcegp"
+    }
+  )
 }
