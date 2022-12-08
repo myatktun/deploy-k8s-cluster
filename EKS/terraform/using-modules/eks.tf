@@ -26,4 +26,13 @@ module "eks" {
       capacity_type  = "ON_DEMAND"
     }
   }
+
+  manage_aws_auth_configmap = true
+  aws_auth_roles = [
+    {
+      rolearn  = module.eks_admin_iam_role.iam_role_arn
+      username = module.eks_admin_iam_role.iam_role_name
+      groups   = ["system:masters"]
+    }
+  ]
 }
